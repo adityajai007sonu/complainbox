@@ -52,30 +52,7 @@ if( /(android)/i.test(navigator.userAgent) ) {
     };
 }
 
-if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
-    document.addEventListener('deviceready', initApp, false);
-} else {
-    initApp();
-}
 
-function initApp() {
-    if (! AdMob ) { alert( 'admob plugin not ready' ); return; }
-
-    AdMob.createBanner( {
-        adId: admobid.banner, 
-        isTesting: true,
-        overlap: false, 
-        offsetTopBar: false, 
-        position: AdMob.AD_POSITION.BOTTOM_CENTER,
-        bgColor: 'black'
-    } );
-    
-    AdMob.prepareInterstitial({
-        adId: admobid.interstitial,
-        autoShow: true
-    });
-}
-   
 </script>
 	<div id="fullpage">
 					<iframe src="http://pgportal.gov.in/pmocitizen/Grievancepmo.aspx" style="width:100%;height:800px">
