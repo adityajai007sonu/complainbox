@@ -37,25 +37,48 @@ div#fullpage {
 var admobid = {};
 if( /(android)/i.test(navigator.userAgent) ) { 
     admobid = { // for Android
-        banner: 'ca-app-pub-2373638997110870/8974726344',
-        interstitial: 'ca-app-pub-2373638997110870/1451459542'
+        banner: 'ca-app-pub-2373638997110870/6027933143',
+        interstitial: 'ca-app-pub-2373638997110870/7504666345'
     };
 } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
     admobid = { // for iOS
-        banner: 'ca-app-pub-6869992474017983/4806197152',
-        interstitial: 'ca-app-pub-6869992474017983/7563979554'
+        banner: 'ca-app-pub-2373638997110870/6027933143',
+        interstitial: 'ca-app-pub-2373638997110870/7504666345'
     };
 } else {
     admobid = { // for Windows Phone
-        banner: 'ca-app-pub-2373638997110870/1591060346',
-        interstitial: 'ca-app-pub-2373638997110870/4544526748'
+        banner: 'ca-app-pub-2373638997110870/1597733549',
+        interstitial: 'ca-app-pub-2373638997110870/3074466741'
     };
 }
 
+if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
+    document.addEventListener('deviceready', initApp, false);
+} else {
+    initApp();
+}
 
+function initApp() {
+    if (! AdMob ) { alert( 'admob plugin not ready' ); return; }
+
+    AdMob.createBanner( {
+        adId: admobid.banner, 
+        isTesting: true,
+        overlap: false, 
+        offsetTopBar: false, 
+        position: AdMob.AD_POSITION.BOTTOM_CENTER,
+        bgColor: 'black'
+    } );
+    
+    AdMob.prepareInterstitial({
+        adId: admobid.interstitial,
+        autoShow: true
+    });
+}
+   
 </script>
 	<div id="fullpage">
-					<iframe src="http://pgportal.gov.in/pmocitizen/Grievancepmo.aspx" style="width:100%;height:800px">
+					<iframe src="https://docs.google.com/forms/d/1mvnqOo01Ow9TGIre3XrkaxbOnQ5mQHUWNamISWL_O4Q/viewform" style="width:100%;height:800px">
         
         </iframe>
 
